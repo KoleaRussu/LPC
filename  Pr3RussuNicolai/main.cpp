@@ -1,13 +1,31 @@
+#include <iostream>
+#include <stdlib.h>
+#include <iomanip>
+#include <conio.h>
+
+#define NMAX 100
+using namespace std;
+// Interfata programului
+int Citire(int n, int a[]); // La intrare: n - numarul de elemente; La iesire: a - tabloul de note; Functia intoarce: 1 - OK; 0 - Eroare
+void Afisare(int n, int a[], char s[]); // La intrare: n - numarul de elemente, a - tabloul de note;
+int Minimum(int n, int a[]);  // La intrare: n - numarul de elemente, a - tabloul de note; La iesire: valoare minima
+int Maximum(int n, int a[]);  // La intrare: n - numarul de elemente, a - tabloul de note; La iesire: valoare maxima
+float Media(int n, int a[]); // La intrare: n - numarul de elemente, a - tabloul de note; La iesire: nota medie
+int Sortare(int n, int a[]); // La intrare: n - numarul de elemente, a - tabloul de note; La iesire: a - tabloul aranjat; Functia intoarce: 1 - OK; 0 - Eroare
+int Rotire(int n, int a[]); // La intrare: n - numarul de elemente, a - tabloul de note; La iesire: a - tabloul rotit; Functia intoarce: 1 - OK; 0 - Eroare
+int Adaugare(int *n, int a[], int val); // La intrare: n - numarul de elemente, a - tabloul de note, val - elementu adaugat; La iesire: n - mareste cu 1, a - tablou
+int Cautare(int n, int a[], int val); // La intrare: n - numarul de elemente, a - tabloul de note, val - elementu adaugat; La iesire: p - pozitia sau -1
+int Stergere(int &n, int a[], int val); // La intrare: n - numarul de elemente, a - tabloul de note, val - elementu adaugat; La iesire: n - mareste cu 1, a - tablou
 int Clasificare(int n, int a[], int m, int b[]); // La intrare: n - numarul de elemente, a - tabloul de note, m - numarul de clasificari; La iesire: b - tabloul nou
 int Generare(int n, int a[]); // La intrare: n - numarul de elemente; La iesire: a - tabloul de note; Functia intoarce: 1 - OK; 0 - Eroare
 int main()
 {
     int key;
     int n = 10;
-    int note[NMAX] = { 8, 1, 10, 7, 4, 5, 3, 2, 6, 9 };
+    int ora[NMAX] = { 8, 1, 10, 7, 4, 5, 3, 2, 6, 9};
 
-    //Citire(n, note);
-    cout << "Tabloul de note ocupa: " << sizeof(note) << " Bt" << endl;
+    //Citire(n, ora);
+    cout << "Tabloul de ora ocupa: " << sizeof(ora) << " Bt" << endl;
     do
     {
         system("cls");
@@ -26,18 +44,18 @@ int main()
         switch(key)
         {
             case 1:
-                Afisare(n, note, "initial");
-                cout << "\nCea mai mica nota este: " << Minimum(n, note);
-                cout << "\nCea mai mare nota este: " << Maximum(n, note);
+                Afisare(n, ora, "initial");
+                cout << "\nCea mai mica nota este: " << Minimum(n, ora);
+                cout << "\nCea mai mare nota este: " << Maximum(n, ora);
             break;
             case 2:
-                Afisare(n, note, "inital");
-                cout << "\nNota medie este: " << Media(n, note);
+                Afisare(n, ora, "inital");
+                cout << "\nNota medie este: " << Media(n, ora);
             break;
             case 3:
-                Afisare(n, note, "inital");
-                Sortare(n, note);
-                Afisare(n, note, "aranjat");
+                Afisare(n, ora, "inital");
+                Sortare(n, ora);
+                Afisare(n, ora, "aranjat");
             break;
         }
         getch();
@@ -51,7 +69,7 @@ int Citire(int n, int a[])
 }
 void Afisare(int n, int a[], char s[])
 {
-    cout << "\nTabloul de note " << s << " \n";
+    cout << "\nTabloul de ora " << s << " \n";
     for (int i = 0; i < n; i++)
         cout << setw(12) << a[i];
     cout << endl;
