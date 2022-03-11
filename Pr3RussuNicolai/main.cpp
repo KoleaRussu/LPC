@@ -35,10 +35,10 @@ int main()
     int ora[NMAX]= {10, 19, 13, 21, 15, 14, 7, 5, 4, 12};
     do
     {
-         cout << "introduceti cite ore sunt in tabel: " ;
+         cout << "Introduceti cite ore sunt in tabel: " ;
          cin >> n ;
          Citire (n, ora);
-    }while (n == 0);
+    }while (n <= 0);
     cout << "Tabloul de ora ocupa: " << sizeof(ora) << " Bt" << endl;
     do
     {
@@ -133,14 +133,44 @@ switch(key)
 }
 int Citire(int n, int a[])
 {
-    if (n == 0)
+    int key;
+    int i;
+        cout << "\n1. De la trastatura";
+        cout << "\n2. De generat aleator";
+        cout << "\n3. De generat intr-un mod special";
+        cout << "\n4. Din fisier";
+        cout << "\n5; Inplicit";
+        cout << "\n\n\t Alege ->" ;
+        cin >> key;
+        switch(key){
+    case 1:
+    for ( i = 0; i < n; i++)
+    do{
+        cout << "Ore plecarii" << i+1 << ": " ;
+        cin >> a[i];
+    }while(a[i] < 0 || a[i] > 23);
+    break;
+    case 2:
+        for ( i = 0; i < n; i++)
+            a[i] = rand() % 23 + 0;
+        break;
+    case 3:
+        for ( i = 0; i < n; i++)
+            a[i] = i % 3 + 12;
+        break;
+    case 4:
+
+        break;
+        }
+    return 1;
+    /*if (n == 0)
         return 0;
     for (int i = 0; i < n; i++)
     {
         cout << i << "ora: " ;
         cin >> a[i];
-    }
-    return 1;
+    } */
+
 }
 void Afisare(int n, int a[],char s[])
 {
@@ -206,12 +236,12 @@ int Rotire(int n, int a[])
     }*/
     //2
      int i, b[NMAX];
-    for ( i = 0; i < 3; i++ )
+    for ( i = 0; i < 7; i++ )
         b[i] = a[i];
-    for( i = 3; i < n; i++)
-        a[i-3]=a[i];
-    for ( i = n - 3; i < n ; i++)
-        a[i]=b[i- n + 3 ];
+    for( i = 7; i < n; i++)
+        a[i-7]=a[i];
+    for ( i = n - 7; i < n ; i++)
+        a[i]=b[i- n + 7 ];
     return 1;
 }
 //1 2 3 4 5 6
@@ -271,11 +301,22 @@ int Stergere(int &n, int a[], int val)
             a[i] = a[i+1];
         }
     }
-
+    n--;
     return 1;
 }
 int Clasificare(int n, int a[], int m, int b[] )
 {
+    int i,j ;
+    int limite[] = [3 , 4, ,6 ,12 ,15 ,16];
+    char vreame[][23] = ("ziua", "dimeneata", "seara", "noaptea");
+    int catagorii[] = [0 , 0, 0, 0];
+        for(int i = 0; i < n; i++)
+            for(int j = 0; j < m; i++)
+            if(a[i]<= limite[j])
+        {
+            categorii[j]++;
+            break;
+        }
     return 1;
 }
 int Generare(int n, int a[])
