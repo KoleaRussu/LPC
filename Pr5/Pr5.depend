@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1648752112 source:d:\lpc\pr5\main.cpp
+	<iostream>
+	<string.h>
+	<cstdlib>
+	<iomanip>
+	<fstream>
+
