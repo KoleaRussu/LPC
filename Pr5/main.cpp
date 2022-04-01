@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <fstream>
 //#include <conio.h>
+#define LMAX 180
 #define NMAX 20
 using namespace std;
 //Interfata
@@ -69,7 +70,7 @@ int main()
             break;
             case 4:
                 cout << "Fraza initiala din fisier: \n";
-                ViewFile("fraza.in");
+                ViewFile("fraza1.txt");
             break;
             case 5:
 
@@ -162,35 +163,14 @@ int CuvinteIncep(char sir[])
 //-> Fisier
 int ViewFile(char nume[])
 {
-    //char fraza[180];
-    string fraza;
-    /*FILE *f;
+    FILE *f;
+    char fraza[LMAX];
+    int nr = 0;
     f = fopen(nume, "r");
-    if (f == NULL)
-    {
-        cout << "Eroare la deschidere";
-        return 0;
-    }
-    while (!feof(f))
-    {
-        //fscanf(f, "%");
-        fgets(fraza, 180, f);
-
-    }
+    while(fgets(fraza, LMAX-1, f) !=NULL)
+        cout << fraza;
     fclose(f);
-    cout << fraza;*/
-    /*ifstream readFile;
-    readFile.open("fraza.in", ios::in);
-    while (!readFile.eof())
-    {
-        readFile.getline(fraza, 180);
-        //cout << fraza;
-        /*for (int i = 0; i < 180; i++)
-            readFile >> fraza[i];*/
-    /*}
-    readFile.close();
-    cout << fraza;
-    return 1;*/
+
 }
 void CopiaRezerva(/*char nume[]*/)
 {
@@ -198,6 +178,14 @@ void CopiaRezerva(/*char nume[]*/)
 }
 int NrCuvinte(/*char sir[]*/)
 {
+    FILE *f;
+    char fraza[LMAX];
+    int nr = 0;
+    f = fopen("fraza1.txt", "r");
+    while(fgets(fraza, LMAX-1, f) !=NULL)
+        nr +=NrCuvinte(fraza);
+    fclose(f);
+    return nr;
     return 1;
 }
 char* LungimeaMaxima(/*char sir[]*/)
