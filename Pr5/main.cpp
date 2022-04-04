@@ -5,8 +5,13 @@
 #include <cstdio>
 #include <stdio.h>
 #include <fstream>
+<<<<<<< HEAD
 #include <conio.h>
 #define LMAX 180
+=======
+//#include <conio.h>
+#define LMAX 180
+>>>>>>> 7a4246e3cc13bfcfcf8efd8b523f0000a71d64a8
 #define NMAX 20
 using namespace std;
 
@@ -15,16 +20,27 @@ int LungimeaMaxima(char sir[]);
 int CuvinteIncep(char sir[]);
 int ViewFile(char nume[]);
 void CopiaRezerva(char nume[]);
+<<<<<<< HEAD
 int NrCuvinteFile();
 int CuvintePalindromeFile();
 int CuvintePalindroame(char sir[]);
 int CuvinteDeLungime();
+=======
+int NrCuvinte();
+int CuvintePalindromeFile(char sir[]);
+int CuvintePalindroame(char sir[]);
+int CuvinteIncep(char sir[]);
+>>>>>>> 7a4246e3cc13bfcfcf8efd8b523f0000a71d64a8
 int TransferLungimeaMaxima(char sir[]);
 int AdaugareCuvintelorInFisier();
 
 int main()
 {
+<<<<<<< HEAD
     int key;
+=======
+     int key;
+>>>>>>> 7a4246e3cc13bfcfcf8efd8b523f0000a71d64a8
     int nr;
     char fraza [81] = "ANA Russu lucreza cu Nicolai ROTARU, iar Maxim CAZAC - nu.";
 	cout << "Project Nr.5 elaborat de Russu Nicolai"<< endl;
@@ -45,7 +61,11 @@ int main()
         {
             case 1:
                 cout << "Fraza initiala \n";
+<<<<<<< HEAD
                 puts(fraza);
+=======
+                puts(fraza);
+>>>>>>> 7a4246e3cc13bfcfcf8efd8b523f0000a71d64a8
                 nr = NrCuvinte(fraza);
                 if (nr > 0) cout << "\nIn total " << nr << " cuvinte in fraza" << endl;
                 else cout << "\nNu-s cuvinte in fraza";
@@ -68,23 +88,36 @@ int main()
             break;
             case 4:
                 cout << "Continutul fisierului: \n";
+<<<<<<< HEAD
                 ViewFile("fraza1.c");
                 if (NrCuvinteFile() != 0)
                     cout << "\nIn total " <<  NrCuvinteFile() << " cuvinte" << endl;
                 else
+=======
+                ViewFile("fraza1.c");
+                if (NrCuvinte() != 0)
+                    cout << "\nIn total " <<  NrCuvinte() << " cuvinte" << endl;
+                else
+>>>>>>> 7a4246e3cc13bfcfcf8efd8b523f0000a71d64a8
                     cout << "Nu-s Cuvinte";
             break;
             case 5:
                 cout << "Fraza initiala din fisier: \n";
                 ViewFile("fraza1.c");
+<<<<<<< HEAD
                 cout << "\nCuvinte palindrome din fisier: ";
                 CuvintePalindromeFile();
+=======
+>>>>>>> 7a4246e3cc13bfcfcf8efd8b523f0000a71d64a8
             break;
             case 6:
                 cout << "Fraza initiala din fisier: \n";
                 ViewFile("fraza1.c");
+<<<<<<< HEAD
                 cout << "\nCuvinte de lungime mai mult de cit 5 litere: ";
                 CuvinteDeLungime();
+=======
+>>>>>>> 7a4246e3cc13bfcfcf8efd8b523f0000a71d64a8
             break;
             case 7:
                 cout << "Fraza initiala din fisier: \n";
@@ -114,6 +147,31 @@ int NrCuvinte(char sir[])
     n = 1;
     while ((cuvint = strtok(NULL, " ,.:\n\t-")) != NULL)
         n++;
+    return n;
+}
+int Palindrome(char slovo[])
+{
+    char periver[NMAX];
+    strcpy(periver, slovo);
+    strrev(periver);
+    if (strcmp(periver, slovo) == 0) return 1;
+    else return 0;
+}
+int CuvintePalindroame(char sir[])
+{
+    char copia[81], *cuvint;
+    int n = 0;
+    strcpy(copia, sir);
+    if ((cuvint = strtok(copia, " ,.:\n\t-")) == NULL) return 0;
+    if (Palindrome(cuvint)){
+        cout << setw(16) << cuvint;
+        n = 1;
+    }
+    while ((cuvint = strtok(NULL, " ,.:\n\t-")) != NULL)
+       if (Palindrome(cuvint)){
+        cout << setw(16) << cuvint;
+        n++;
+    }
     return n;
 }
 int Palindrome(char slovo[])
@@ -197,6 +255,7 @@ int CuvinteIncep(char sir[])
 }
 //-> Fisier
 int ViewFile(char nume[])
+<<<<<<< HEAD
 {
     FILE *f;
     char fraza[LMAX];
@@ -205,12 +264,23 @@ int ViewFile(char nume[])
     while(fgets(fraza, LMAX-1, f) !=NULL)
         cout << fraza;
     fclose(f);
+=======
+{
+    FILE *f;
+    char fraza[LMAX];
+    int nr = 0;
+    f = fopen(nume, "r");
+    while(fgets(fraza, LMAX-1, f) !=NULL)
+        cout << fraza;
+    fclose(f);
+>>>>>>> 7a4246e3cc13bfcfcf8efd8b523f0000a71d64a8
 
 }
 void CopiaRezerva(/*char nume[]*/)
 {
 
 }
+<<<<<<< HEAD
 int NrCuvinteFile(/*char sir[]*/)
 {
     FILE *f;
@@ -237,6 +307,22 @@ int CuvintePalindromeFile()
     }
 
     return 0;
+=======
+int NrCuvinte(/*char sir[]*/)
+{
+    FILE *f;
+    char fraza[LMAX];
+    int nr = 0;
+    f = fopen("fraza1.txt", "r");
+    while(fgets(fraza, LMAX-1, f) !=NULL)
+        nr +=NrCuvinte(fraza);
+    fclose(f);
+    return nr;
+}
+int CuvintePalindromeFile(char sir[])
+{
+    return 0;
+>>>>>>> 7a4246e3cc13bfcfcf8efd8b523f0000a71d64a8
 }
 int CuvinteDeLungime(/*char sir[]), char litera*/)
 {
