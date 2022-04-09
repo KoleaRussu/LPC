@@ -5,46 +5,34 @@
 #include <cstdio>
 #include <stdio.h>
 #include <fstream>
-<<<<<<< HEAD
 #include <conio.h>
 #define LMAX 180
-=======
-//#include <conio.h>
 #define LMAX 180
->>>>>>> 7a4246e3cc13bfcfcf8efd8b523f0000a71d64a8
 #define NMAX 20
 using namespace std;
 
 int NrCuvinte(char sir[]);
-int LungimeaMaxima(char sir[]);
 int CuvinteIncep(char sir[]);
 int ViewFile(char nume[]);
-void CopiaRezerva(char nume[]);
-<<<<<<< HEAD
+int Palindrome(char slovo[]);
 int NrCuvinteFile();
 int CuvintePalindromeFile();
 int CuvintePalindroame(char sir[]);
 int CuvinteDeLungime();
-=======
 int NrCuvinte();
 int CuvintePalindromeFile(char sir[]);
 int CuvintePalindroame(char sir[]);
 int CuvinteIncep(char sir[]);
->>>>>>> 7a4246e3cc13bfcfcf8efd8b523f0000a71d64a8
 int TransferLungimeaMaxima(char sir[]);
 int AdaugareCuvintelorInFisier();
 
 int main()
 {
-<<<<<<< HEAD
     int key;
-=======
-     int key;
->>>>>>> 7a4246e3cc13bfcfcf8efd8b523f0000a71d64a8
     int nr;
     char fraza [81] = "ANA Russu lucreza cu Nicolai ROTARU, iar Maxim CAZAC - nu.";
 	cout << "Project Nr.5 elaborat de Russu Nicolai"<< endl;
-	cout << "Tema: ŞIRURI DE CARACTERE."<< endl;
+	cout << "Tema: SIRURI DE CARACTERE."<< endl;
 	do{
 	cout << "\n 1.Numarul de cuvinte dintr-un fraza:";
 	cout << "\n 2.Cuvintele -palindrome dintro-fraza.";
@@ -61,11 +49,8 @@ int main()
         {
             case 1:
                 cout << "Fraza initiala \n";
-<<<<<<< HEAD
                 puts(fraza);
-=======
                 puts(fraza);
->>>>>>> 7a4246e3cc13bfcfcf8efd8b523f0000a71d64a8
                 nr = NrCuvinte(fraza);
                 if (nr > 0) cout << "\nIn total " << nr << " cuvinte in fraza" << endl;
                 else cout << "\nNu-s cuvinte in fraza";
@@ -74,9 +59,8 @@ int main()
                 cout << "Fraza initiala \n";
                 puts(fraza);
                 nr = CuvintePalindroame(fraza);
-                if (nr > 0) cout << "\n In total " << nr << " cuvinte-palindroame in fraza" << endl;
+                if (nr > 0) cout << "\n\n In total " << nr << " cuvinte-palindroame in fraza" << endl;
                 else cout << "\nNu-s cuvinte-palindroame in fraza";
-                //LungimeaMaxima(fraza);
             break;
             case 3:
                 cout << "Fraza initiala \n";
@@ -88,50 +72,37 @@ int main()
             break;
             case 4:
                 cout << "Continutul fisierului: \n";
-<<<<<<< HEAD
                 ViewFile("fraza1.c");
                 if (NrCuvinteFile() != 0)
                     cout << "\nIn total " <<  NrCuvinteFile() << " cuvinte" << endl;
                 else
-=======
                 ViewFile("fraza1.c");
                 if (NrCuvinte() != 0)
                     cout << "\nIn total " <<  NrCuvinte() << " cuvinte" << endl;
-                else
->>>>>>> 7a4246e3cc13bfcfcf8efd8b523f0000a71d64a8
-                    cout << "Nu-s Cuvinte";
             break;
             case 5:
                 cout << "Fraza initiala din fisier: \n";
                 ViewFile("fraza1.c");
-<<<<<<< HEAD
                 cout << "\nCuvinte palindrome din fisier: ";
                 CuvintePalindromeFile();
-=======
->>>>>>> 7a4246e3cc13bfcfcf8efd8b523f0000a71d64a8
             break;
             case 6:
                 cout << "Fraza initiala din fisier: \n";
                 ViewFile("fraza1.c");
-<<<<<<< HEAD
                 cout << "\nCuvinte de lungime mai mult de cit 5 litere: ";
                 CuvinteDeLungime();
-=======
->>>>>>> 7a4246e3cc13bfcfcf8efd8b523f0000a71d64a8
             break;
             case 7:
                 cout << "Fraza initiala din fisier: \n";
                 ViewFile("fraza1.c");
                 AdaugareCuvintelorInFisier();
+                cout << "\nCuvintele de lungimi > 5 au fost inscrise in alt fisier" << endl;
             break;
             case 8:
 
             break;
-            case 9:
-
-            break;
         }
-        fflush(stdin); // Ochistka bufera
+        fflush(stdin);
         cout << "Apasa enter: " << getchar();
     } while(key);
 
@@ -164,98 +135,41 @@ int CuvintePalindroame(char sir[])
     strcpy(copia, sir);
     if ((cuvint = strtok(copia, " ,.:\n\t-")) == NULL) return 0;
     if (Palindrome(cuvint)){
-        cout << setw(16) << cuvint;
+        cout << "\n Cuvinte Palindrome din fraza: "<< setw(8) << cuvint;
         n = 1;
     }
     while ((cuvint = strtok(NULL, " ,.:\n\t-")) != NULL)
        if (Palindrome(cuvint)){
-        cout << setw(16) << cuvint;
+        cout << setw(8) << cuvint;
         n++;
     }
     return n;
-}
-int Palindrome(char slovo[])
-{
-    char periver[NMAX];
-    strcpy(periver, slovo);
-    strrev(periver);
-    if (strcmp(periver, slovo) == 0) return 1;
-    else return 0;
-}
-int CuvintePalindroame(char sir[])
-{
-    char copia[81], *cuvint;
-    int n = 0;
-    strcpy(copia, sir);
-    if ((cuvint = strtok(copia, " ,.:\n\t-")) == NULL) return 0;
-    if (Palindrome(cuvint)){
-        cout << setw(16) << cuvint;
-        n = 1;
-    }
-    while ((cuvint = strtok(NULL, " ,.:\n\t-")) != NULL)
-       if (Palindrome(cuvint)){
-        cout << setw(16) << cuvint;
-        n++;
-    }
-    return n;
-}
-int LungimeaMaxima(char sir[])
-{
-    char copia1[81], copia2[81], *cuvint;
-    int maxim = 0;
-    strcpy(copia1, sir);
-    strcpy(copia2, sir);
-    if ((cuvint = strtok(copia1, " ,.:\n\t-")) == NULL) return 0;
-    maxim = strlen(cuvint);
-    while ((cuvint = strtok(NULL, " ,.:\n\t-")) != NULL)
-    {
-        if (strlen(cuvint) >= maxim)
-        {
-            maxim = strlen(cuvint);
-        }
-    }
-    cout << "Cuvintul/ele cu lungimea maxima: ";
-    if ((cuvint = strtok(copia2, " ,.:\n\t-")) == NULL) return 0;
-    while ((cuvint = strtok(NULL, " ,.:\n\t-")) != NULL)
-    {
-        if(strlen(cuvint) == maxim) cout << cuvint << " ";
-    }
-
-    return 1;
 }
 int CuvinteIncep(char sir[])
 {
-    char copia[81], *cuvint;
-    char litere[NMAX];
-    int i = 0, val;
-    cout << "Cate litere vor fi: ";
-    cin >> val;
-    cout << "Introduceti litere necesare:\n";
-    for (i = 0; i < val; i++)
-    {
-        cout << "Litera " << i + 1 << " : ";
-        cin >> litere[i];
-    }
-    strcpy(copia, sir);
-    cout << "Cuvintele care incep cu o litera din intervalul dat:\n\t";
-    if ((cuvint = strtok(copia, " ,.:\n\t-")) == NULL) return 0;
-    for (i = 0; i < val; i++)
-    {
-        if (cuvint[0] == litere[i])
-            cout << cuvint << ", ";
-    }
+    char copia1[81], copia2[81], *cuvint;
+    int slovo = 0;
+    strcpy(copia1, sir);
+    strcpy(copia2, sir);
+    if ((cuvint = strtok(copia1, " ,.:\n\t-")) == NULL) return 0;
+    slovo = strlen(cuvint);
     while ((cuvint = strtok(NULL, " ,.:\n\t-")) != NULL)
-    for (i = 0; i < val; i++)
     {
-        if (cuvint[0] == litere[i])
-            cout << cuvint << ", ";
+        if (strlen(cuvint) > 5)
+        {
+            slovo = strlen(cuvint);
+        }
     }
-     //cout << cuvint[0] << endl;
+    cout << "Cuvintele cu lungimea cel putin 5 litere dintro fraza: ";
+    if ((cuvint = strtok(copia2, " ,.:\n\t-")) == NULL) return 0;
+    while ((cuvint = strtok(NULL, " ,.:\n\t-")) != NULL)
+    {
+        if(strlen(cuvint) <= 5) cout << setw(8) << cuvint << "";
+    }
+
     return 1;
 }
-//-> Fisier
 int ViewFile(char nume[])
-<<<<<<< HEAD
 {
     FILE *f;
     char fraza[LMAX];
@@ -264,24 +178,9 @@ int ViewFile(char nume[])
     while(fgets(fraza, LMAX-1, f) !=NULL)
         cout << fraza;
     fclose(f);
-=======
-{
-    FILE *f;
-    char fraza[LMAX];
-    int nr = 0;
-    f = fopen(nume, "r");
-    while(fgets(fraza, LMAX-1, f) !=NULL)
-        cout << fraza;
-    fclose(f);
->>>>>>> 7a4246e3cc13bfcfcf8efd8b523f0000a71d64a8
-
 }
-void CopiaRezerva(/*char nume[]*/)
-{
 
-}
-<<<<<<< HEAD
-int NrCuvinteFile(/*char sir[]*/)
+int NrCuvinteFile()
 {
     FILE *f;
     char fraza[LMAX];
@@ -307,7 +206,7 @@ int CuvintePalindromeFile()
     }
 
     return 0;
-=======
+}
 int NrCuvinte(/*char sir[]*/)
 {
     FILE *f;
@@ -319,11 +218,6 @@ int NrCuvinte(/*char sir[]*/)
     fclose(f);
     return nr;
 }
-int CuvintePalindromeFile(char sir[])
-{
-    return 0;
->>>>>>> 7a4246e3cc13bfcfcf8efd8b523f0000a71d64a8
-}
 int CuvinteDeLungime(/*char sir[]), char litera*/)
 {
     FILE *f;
@@ -333,17 +227,17 @@ int CuvinteDeLungime(/*char sir[]), char litera*/)
     {
     strcpy(copia, fraza);
     if ((slovo = strtok(copia, " ,.:\n\t-")) == NULL) return 0;
-    if (strlen(slovo) > 5) cout << slovo << " ";
+    if (strlen(slovo) > 5) cout << setw(8) << slovo << " ";
     while ((slovo = strtok(NULL, " ,.:\n\t-")) != NULL)
-    if (strlen(slovo) > 5) cout << slovo << " ";
+    if (strlen(slovo) > 5) cout << setw(8) << slovo << " ";
     }
     fclose(f);
     return 0;
 }
-int AdaugareCuvintelorInFisier(/*char sir[]*/)
+int AdaugareCuvintelorInFisier()
 {
-        FILE *f;
-        FILE *s;
+    FILE *f;
+    FILE *s;
     char fraza[LMAX], copia[LMAX], *slovo;
     f = fopen("fraza1.c", "r");
     s = fopen("FurnituriMoldova.c", "w");
