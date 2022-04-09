@@ -13,7 +13,11 @@ using namespace std;
 
 int NrCuvinte(char sir[]);
 int CuvinteIncep(char sir[]);
+<<<<<<< HEAD
 int ViewFile(char nume[]);
+=======
+int ViewFile(char nume[]);
+>>>>>>> d69fcf9b9eb8814e5a210c3d4e12c4dd58095a3c
 int Palindrome(char slovo[]);
 int NrCuvinteFile();
 int CuvintePalindromeFile();
@@ -95,7 +99,11 @@ int main()
             case 7:
                 cout << "Fraza initiala din fisier: \n";
                 ViewFile("fraza1.c");
+<<<<<<< HEAD
                 AdaugareCuvintelorInFisier();
+=======
+                AdaugareCuvintelorInFisier();
+>>>>>>> d69fcf9b9eb8814e5a210c3d4e12c4dd58095a3c
                 cout << "\nCuvintele de lungimi > 5 au fost inscrise in alt fisier" << endl;
             break;
             case 8:
@@ -145,14 +153,21 @@ int CuvintePalindroame(char sir[])
     }
     return n;
 }
+<<<<<<< HEAD
 int CuvinteIncep(char sir[])
 {
+=======
+int CuvinteIncep(char sir[])
+{
+>>>>>>> d69fcf9b9eb8814e5a210c3d4e12c4dd58095a3c
     char copia1[81], copia2[81], *cuvint;
     int slovo = 0;
     strcpy(copia1, sir);
     strcpy(copia2, sir);
     if ((cuvint = strtok(copia1, " ,.:\n\t-")) == NULL) return 0;
     slovo = strlen(cuvint);
+<<<<<<< HEAD
+=======
     while ((cuvint = strtok(NULL, " ,.:\n\t-")) != NULL)
     {
         if (strlen(cuvint) > 5)
@@ -169,6 +184,48 @@ int CuvinteIncep(char sir[])
 
     return 1;
 }
+/*{
+    char copia[81], *cuvint;
+    char litere[NMAX];
+    int i = 0, val;
+    cout << "Cate litere vor fi: ";
+    cin >> val;
+    cout << "Introduceti litere necesare:\n";
+    for (i = 0; i < val; i++)
+    {
+        cout << "Litera " << i + 1 << " : ";
+        cin >> litere[i];
+    }
+    strcpy(copia, sir);
+    cout << "Cuvintele care incep cu o litera din intervalul dat:\n\t";
+    if ((cuvint = strtok(copia, " ,.:\n\t-")) == NULL) return 0;
+    for (i = 0; i < val; i++)
+    {
+        if (cuvint[0] == litere[i])
+            cout << cuvint << ", ";
+    }
+>>>>>>> d69fcf9b9eb8814e5a210c3d4e12c4dd58095a3c
+    while ((cuvint = strtok(NULL, " ,.:\n\t-")) != NULL)
+    {
+        if (strlen(cuvint) > 5)
+        {
+            slovo = strlen(cuvint);
+        }
+    }
+    cout << "Cuvintele cu lungimea cel putin 5 litere dintro fraza: ";
+    if ((cuvint = strtok(copia2, " ,.:\n\t-")) == NULL) return 0;
+    while ((cuvint = strtok(NULL, " ,.:\n\t-")) != NULL)
+    {
+        if(strlen(cuvint) <= 5) cout << setw(8) << cuvint << "";
+    }
+
+    return 1;
+<<<<<<< HEAD
+}
+=======
+} */
+//-> Fisier
+>>>>>>> d69fcf9b9eb8814e5a210c3d4e12c4dd58095a3c
 int ViewFile(char nume[])
 {
     FILE *f;
