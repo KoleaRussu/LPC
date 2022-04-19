@@ -1,0 +1,48 @@
+#include <iostream>
+#include <stdlib.h>
+#include <conio.h>
+#include <string.h>
+#include <stdio.h>
+#include <cstdlib>
+#include "Gara.h"
+void Insriere()
+{
+    FILE *ft, *f;
+    GaraAuto gara;
+    char autobuz;
+    ft = fopen("GaraAutoDate.txt", "r");
+    f = fopen("GaraAutoDate.in", "wb");
+    while(fscanf(ft, "%d %s %s %d %d %d %d %d",
+            &gara.id, &gara.Plecare, &gara.Terminus, &gara.oraplecarii.ora, &gara.oraplecarii.minuta, &gara.Durata, &gara.Locuri, &gara.Pret) !=EOF)
+
+
+          {
+          strcat(gara.Plecare, Terminus);
+          printf("\n%s", &gara.Plecare);
+          fwide(&gara, sizeof(GaraAuto, 1 ,f));
+          }
+ printf("\nOK");
+ fclose(ft);
+ fclose(f);
+
+}
+void Linia(int st, int lin, int mij, int dr)
+{
+    int i;
+    printf("\n%c, st");
+    for (i = 1; i<=5 ; i++) printf("%c", lin); printf("%c",mij);
+}
+void Afisare()
+{
+    printf("\n Lista Gara de Auto");
+    Linia(201, 205, 209, 187);
+
+}
+void Adaugare()
+{
+
+}
+void Modificare()
+{
+
+}

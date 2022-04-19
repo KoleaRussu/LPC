@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1650360268 source:c:\users\utilizator\desktop\pr6\actual.cpp
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	<stdio.h>
+	<cstdlib>
+	"Gara.h"
+
+1650360268 c:\users\utilizator\desktop\pr6\gara.h
+
+1650355281 source:c:\users\utilizator\desktop\pr6\liste.cpp
+
+1650359158 source:c:\users\utilizator\desktop\pr6\servis.cpp
+
+1650359278 source:c:\users\utilizator\desktop\pr6\main.cpp
+	<iostream>
+	<stdlib.h>
+	<conio.h>
+
