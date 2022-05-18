@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1652900064 source:d:\lpc\ pr3russunicolai\main.cpp
+	<iostream>
+	<stdlib.h>
+	<iomanip>
+	<conio.h>
+

@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1652900456 source:d:\lpc\pellpr2\main.cpp
+	<iostream>
+	<stdlib.h>
+	<math.h>
+	<iomanip>
+
